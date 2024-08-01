@@ -43,8 +43,11 @@ public class Cube : MonoBehaviour
         {
             Splited?.Invoke(this);
         }
+        else
+        {
+            _eplosion.Explode();
+        }
 
-        _eplosion.Explode();
         Destroy(gameObject);
     }
 }
