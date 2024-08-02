@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(Explosion))]
 
 public class Cube : MonoBehaviour
 {
@@ -24,16 +25,17 @@ public class Cube : MonoBehaviour
         _eplosion = GetComponent<Explosion>();
     }
 
-    public void Initialization(Vector3 scale, float change)
+    private void OnMouseUpAsButton()
+    {
+        TryToSplit();
+    }
+
+    public void Init(Vector3 scale, float change)
     {
         transform.localScale = scale;
         ChanceToSplit = change;
     }
 
-    private void OnMouseUpAsButton()
-    {
-        TryToSplit();
-    }
 
     private void TryToSplit()
     {
