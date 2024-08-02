@@ -7,17 +7,10 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _radiusExplosion = 40;
     [SerializeField] private float _forceExplosion = 200;
 
-    private Cube _cube;
-
-    private void Awake()
-    {
-        _cube = GetComponent<Cube>();
-    }
-
     public void Explode()
     {
-        float radius = _radiusExplosion / _cube.transform.localScale.x;
-        float force = _forceExplosion / _cube.transform.localScale.x;
+        float radius = _radiusExplosion / transform.transform.localScale.x;
+        float force = _forceExplosion / transform.transform.localScale.x;
 
         foreach (Rigidbody cube in GetCubesRigitbody())
         {

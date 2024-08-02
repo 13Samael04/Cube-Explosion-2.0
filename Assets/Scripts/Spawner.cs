@@ -12,15 +12,12 @@ public class Spawner : MonoBehaviour
     private int _maxSpawnCube = 6;
     private int _indexToDecreaseScale = 2;
     private int _IndexForDerciseChanceSpleet = 2;
-    private Transform _spawnPoint;
 
     private void Awake()
     {
-        _spawnPoint = GetComponent<Transform>();
-
         for (int i = 0; i < _initialCubeCount; i++)
         {
-            CreateCube(_cube, _spawnPoint.position);
+            CreateCube(_cube, transform.position);
         }
     }
 
@@ -51,7 +48,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < countCubes; i++)
         {
             Cube newCube = CreateCube(cube, cube.transform.position);
-            newCube.Initialization(scale, chanceToSplite);
+            newCube.Init(scale, chanceToSplite);
             cubes.Add(newCube);
         }
 
